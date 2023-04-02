@@ -1,8 +1,13 @@
-import React from "react";
+import { FC } from "react";
 import "./App.css";
+import Layout from "./components/Layout";
 
-function App() {
-  return <div className="App">hello world</div>;
+const App: FC = () => {
+  return (
+    <div className="App">
+      <Layout />
+    </div>
+  );
 }
 
 export default App;
