@@ -1,0 +1,11 @@
+.Sidebar-component {
+    grid-area: sidebar;
+    border-right: 1px solid #d0d7de;
+}
+
+.Sidebar-title {
+    display: grid;
+    padding: 16px;
+    place-items: center;
+    background-color: #f6f8fa;
+}

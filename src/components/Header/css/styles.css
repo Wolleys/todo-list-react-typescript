@@ -1,0 +1,12 @@
+.Header-component {
+    display: grid;
+    color: #fff;
+    grid-area: header;
+    place-items: center;
+    background-color: #24292f;
+}
+
+.Header-logo {
+    cursor: default;
+    font-size: 22px;
+}
