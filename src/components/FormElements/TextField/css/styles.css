@@ -1,0 +1,20 @@
+.input-wrapper {
+    outline: 0;
+    border: none;
+    color: #f8f9fa;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin: 0.2rem 0rem;
+    border: 1px solid #352f5b;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.input-wrapper:focus {
+    color: #f8f9fa;
+    border: 1px solid #423a6f;
+}
+
+.input-wrapper::placeholder {
+    opacity: 0.5;
+}
