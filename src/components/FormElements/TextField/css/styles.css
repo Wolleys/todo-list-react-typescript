@@ -1,7 +1,6 @@
 .input {
-    width: 440px;
+    width: 100%;
     outline: none;
-    max-width: 100%;
     font-size: 14px;
     transition: 80ms;
     color: #1f2328;

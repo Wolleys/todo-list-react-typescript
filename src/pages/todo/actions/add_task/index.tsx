@@ -1,6 +1,7 @@
 import { FC } from "react";
 import useForm from "../../../../hooks/useForm";
 import TextField from "../../../../components/FormElements/TextField";
+import SubmitBtn from "../../../../components/FormElements/Button/submitBtn";
 
 const AddTask: FC = () => {
   const initialState = {
@@ -26,7 +27,7 @@ const AddTask: FC = () => {
           onChange={onChange}
           placeholder="Enter task here!"
         />
-        <br/>
+        <br />
         <TextField
           required
           type="number"
@@ -34,8 +35,8 @@ const AddTask: FC = () => {
           onChange={onChange}
           placeholder="Enter deadline (in days)"
         />
-        <br/>
-        <button type="submit">Add new task</button>
+        <br />
+        <SubmitBtn> Add new task </SubmitBtn>
       </form>
     </>
   );
