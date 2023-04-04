@@ -6,6 +6,20 @@
 .Sidebar-title {
     display: grid;
     padding: 16px;
+    font-size: 18px;
+    font-weight: 600;
     place-items: center;
     background-color: #f6f8fa;
+}
+
+.Form-container {
+    padding: 16px;
+    margin: 1rem auto;
+}
+
+.Form-container h6 {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 1rem;
 }

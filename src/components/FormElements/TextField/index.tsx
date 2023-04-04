@@ -10,12 +10,7 @@ const TextField: FC<InputProps> = ({ name, label, ...otherProps }) => {
   return (
     <>
       <label htmlFor={name}> {label} </label>
-      <input
-        type="text"
-        name={name}
-        {...otherProps}
-        className="input-wrapper"
-      />
+      <input name={name} {...otherProps} className="input" />
     </>
   );
 };

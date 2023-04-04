@@ -1,13 +1,13 @@
 import { FC } from "react";
 import "./App.css";
-import Layout from "./components/Layout";
+import Todo from "./pages/todo";
 
 const App: FC = () => {
   return (
     <div className="App">
-      <Layout />
+      <Todo />
     </div>
   );
-}
+};
 
 export default App;
