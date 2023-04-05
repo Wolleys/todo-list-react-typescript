@@ -1,4 +1,7 @@
 import { FC } from "react";
+import EditBtn from "../FormElements/Button/editBtn";
+import DeleteBtn from "../FormElements/Button/deleteBtn";
+import FinishBtn from "../FormElements/Button/finishBtn";
 import { TaskInterface as PropsInterface } from "../../interfaces/TaskInterface";
 
 interface TaskPropsInterface {
@@ -17,9 +20,9 @@ const TableBody: FC<TaskPropsInterface> = ({ tasks, deleteTask, editRow }) => {
           <td>In progress</td>
           <td>
             <span>
-              <button onClick={() => editRow()}>Edit</button>
-              <button onClick={() => deleteTask(item.id)}>Delete</button>
-              <button>Finish</button>
+              <EditBtn onClick={() => editRow()}>Edit</EditBtn>
+              <DeleteBtn onClick={() => deleteTask(item.id)}>Delete</DeleteBtn>
+              <FinishBtn>Finish</FinishBtn>
             </span>
           </td>
         </tr>

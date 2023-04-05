@@ -1,5 +1,4 @@
-.Submit-btn {
-    float: left;
+button {
     font-size: 14px;
     cursor: pointer;
     color: #24292f;
@@ -15,7 +14,47 @@
     border: 1px solid #1f232826;
 }
 
-.Submit-btn:hover {
+button:hover {
     transition-duration: .1s;
     background-color: #f3f4f6;
+}
+
+.Submit-btn {
+    float: left;
+    color: #ffffff;
+    background-color: #1f883d;
+}
+
+.Submit-btn:hover {
+    background-color: #1a7f37;
+}
+
+.Edit-btn {
+    margin: 0 5px;
+    background-color: #ffffff;
+}
+
+.Edit-btn:hover {
+    color: #ffffff;
+    background-color: #3b71ca;
+}
+
+.Delete-btn {
+    margin: 0 5px 0 0;
+    background-color: #ffffff;
+}
+
+.Delete-btn:hover {
+    color: #ffffff;
+    background-color: #a40e26;
+}
+
+.Finish-btn {
+    margin: 0 5px 0 0;
+    background-color: #ffffff;
+}
+
+.Finish-btn:hover {
+    color: #ffffff;
+    background-color: #e4a11b;
 }
