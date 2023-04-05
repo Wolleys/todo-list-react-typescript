@@ -1,19 +1,12 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import "./css/styles.css";
-import Header from "../Header";
-import Footer from "../Footer";
-import Sidebar from "../Sidebar";
-import MainContent from "../MainContent";
 
-const Layout: FC = () => {
-  return (
-    <div className="Primary-layout">
-      <Header />
-      <Sidebar />
-      <MainContent />
-      <Footer />
-    </div>
-  );
+type LayoutInterface = {
+  children: ReactNode;
+};
+
+const Layout: FC<LayoutInterface> = ({ children }) => {
+  return <div className="Primary-layout">{children}</div>;
 };
 
 export default Layout;

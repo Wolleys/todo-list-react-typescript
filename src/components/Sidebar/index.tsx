@@ -1,14 +1,15 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import "./css/styles.css";
-import AddTask from "../../pages/todo/actions/add_task";
 
-const Sidebar: FC = () => {
+type SidebarInterface = {
+  children: ReactNode;
+};
+
+const Sidebar: FC<SidebarInterface> = ({ children }) => {
   return (
     <div className="Sidebar-component">
       <div className="Sidebar-title">Task manager</div>
-      <div className="Form-container">
-        <AddTask />
-      </div>
+      <div className="Form-container">{children}</div>
     </div>
   );
 };
