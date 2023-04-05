@@ -11,11 +11,11 @@ import SubmitBtn from "../../../../components/FormElements/Button/submitBtn";
 import { TaskInterface as PropsInterface } from "../../../../interfaces/TaskInterface";
 
 interface TaskPropsInterface {
-  task: PropsInterface["task"];
-  setTask: Dispatch<SetStateAction<PropsInterface["task"]>>;
+  tasks: PropsInterface["task"];
+  setTasks: Dispatch<SetStateAction<PropsInterface["task"]>>;
 }
 
-const AddTask: FC<TaskPropsInterface> = ({ task, setTask }) => {
+const AddTask: FC<TaskPropsInterface> = ({ tasks, setTasks }) => {
   const initialValues = {
     id: 0,
     description: "",
@@ -34,10 +34,10 @@ const AddTask: FC<TaskPropsInterface> = ({ task, setTask }) => {
   const addTask = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     if (!input.description || input.deadline <= 0) return;
-    setTask([
-      ...task,
+    setTasks([
+      ...tasks,
       {
-        id: task.length + 1,
+        id: tasks.length + 1,
         description: input.description,
         deadline: input.deadline,
       },

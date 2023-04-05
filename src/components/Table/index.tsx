@@ -5,17 +5,17 @@ import TableHeader from "./TableHeader";
 import { TaskInterface as PropsInterface } from "../../interfaces/TaskInterface";
 
 interface TaskPropsInterface {
-  task: PropsInterface["task"];
-  setTask: Dispatch<SetStateAction<PropsInterface["task"]>>;
-  editRow(): void
+  tasks: PropsInterface["task"];
+  setTasks: Dispatch<SetStateAction<PropsInterface["task"]>>;
+  editRow(): void;
 }
 
-const Table: FC<TaskPropsInterface> = ({ task, setTask, editRow }) => {
+const Table: FC<TaskPropsInterface> = ({ tasks, setTasks, editRow }) => {
   return (
     <div className="Table-container">
       <table>
         <TableHeader />
-        <TableBody task={task} setTask={setTask} editRow={editRow} />
+        <TableBody tasks={tasks} setTasks={setTasks} editRow={editRow} />
       </table>
     </div>
   );

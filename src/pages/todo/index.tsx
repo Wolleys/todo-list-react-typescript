@@ -15,7 +15,7 @@ const Todo: FC = () => {
     { id: 2, description: "Renew car insurance", deadline: 5 },
   ];
 
-  const [task, setTask] = useState<TaskInterface["task"]>(taskData);
+  const [tasks, setTasks] = useState<TaskInterface["task"]>(taskData);
   const [editing, setEditing] = useState<boolean>(false);
 
   const updateTask = (): void => {
@@ -30,10 +30,14 @@ const Todo: FC = () => {
     <Layout>
       <Header />
       <Sidebar>
-        {editing ? <EditTask setEditing={setEditing} /> : <AddTask task={task} setTask={setTask} />}
+        {editing ? (
+          <EditTask setEditing={setEditing} />
+        ) : (
+          <AddTask tasks={tasks} setTasks={setTasks} />
+        )}
       </Sidebar>
       <MainContent>
-        <TasksList task={task} editRow={editRow} setTask={setTask} />
+        <TasksList tasks={tasks} editRow={editRow} setTasks={setTasks} />
       </MainContent>
       <Footer />
     </Layout>
