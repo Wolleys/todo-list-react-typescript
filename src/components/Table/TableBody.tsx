@@ -7,6 +7,10 @@ interface TaskPropsInterface {
 }
 
 const TableBody: FC<TaskPropsInterface> = ({ task, setTask }) => {
+  const deleteTask = (id: number): void => {
+    setTask(task.filter((task) => task.id !== id));
+  };
+
   const renderTableBody = (): JSX.Element[] => {
     return task.map((item) => {
       return (
@@ -17,7 +21,7 @@ const TableBody: FC<TaskPropsInterface> = ({ task, setTask }) => {
           <td>
             <span>
               <button>Edit</button>
-              <button>Delete</button>
+              <button onClick={() => deleteTask(item.id)}>Delete</button>
               <button>Finish</button>
             </span>
           </td>
