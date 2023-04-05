@@ -4,9 +4,10 @@ import { TaskInterface as PropsInterface } from "../../interfaces/TaskInterface"
 interface TaskPropsInterface {
   task: PropsInterface["task"];
   setTask: Dispatch<SetStateAction<PropsInterface["task"]>>;
+  editRow(): void
 }
 
-const TableBody: FC<TaskPropsInterface> = ({ task, setTask }) => {
+const TableBody: FC<TaskPropsInterface> = ({ task, setTask, editRow }) => {
   const deleteTask = (id: number): void => {
     setTask(task.filter((task) => task.id !== id));
   };
@@ -20,7 +21,7 @@ const TableBody: FC<TaskPropsInterface> = ({ task, setTask }) => {
           <td>In progress</td>
           <td>
             <span>
-              <button>Edit</button>
+              <button onClick={() => editRow()}>Edit</button>
               <button onClick={() => deleteTask(item.id)}>Delete</button>
               <button>Finish</button>
             </span>

@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import AddTask from "./actions/add_task";
 import TasksList from "./table/tasksList";
+import EditTask from "./actions/edit_task";
 import Footer from "../../components/Footer";
 import Layout from "../../components/Layout";
 import Header from "../../components/Header";
@@ -15,15 +16,24 @@ const Todo: FC = () => {
   ];
 
   const [task, setTask] = useState<TaskInterface["task"]>(taskData);
+  const [editing, setEditing] = useState<boolean>(false);
+
+  const updateTask = (): void => {
+    setEditing(false);
+  };
+
+  const editRow = (): void => {
+    setEditing(true);
+  };
 
   return (
     <Layout>
       <Header />
       <Sidebar>
-        <AddTask task={task} setTask={setTask} />
+        {editing ? <EditTask setEditing={setEditing} /> : <AddTask task={task} setTask={setTask} />}
       </Sidebar>
       <MainContent>
-        <TasksList task={task} setTask={setTask} />
+        <TasksList task={task} editRow={editRow} setTask={setTask} />
       </MainContent>
       <Footer />
     </Layout>

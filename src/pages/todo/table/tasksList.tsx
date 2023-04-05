@@ -5,10 +5,11 @@ import { TaskInterface as PropsInterface } from "../../../interfaces/TaskInterfa
 interface TaskPropsInterface {
   task: PropsInterface["task"];
   setTask: Dispatch<SetStateAction<PropsInterface["task"]>>;
+  editRow(): void
 }
 
-const TasksList: FC<TaskPropsInterface> = ({ task, setTask }) => {
-  return <Table task={task} setTask={setTask} />;
+const TasksList: FC<TaskPropsInterface> = ({ task, setTask, editRow }) => {
+  return <Table task={task} setTask={setTask} editRow={editRow} />;
 };
 
 export default TasksList;
