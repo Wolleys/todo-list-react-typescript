@@ -20,7 +20,7 @@ const Todo: FC = () => {
     <Layout>
       <Header />
       <Sidebar>
-        <AddTask />
+        <AddTask task={task} setTask={setTask} />
       </Sidebar>
       <MainContent>
         <TasksList task={task} setTask={setTask} />
