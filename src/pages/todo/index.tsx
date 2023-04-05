@@ -18,8 +18,19 @@ const Todo: FC = () => {
   const [tasks, setTasks] = useState<TaskInterface["task"]>(taskData);
   const [editing, setEditing] = useState<boolean>(false);
 
-  const updateTask = (): void => {
+  // CRUD operations
+  const addTask = (task: any): void => {
+    task.id = tasks.length + 1;
+    setTasks([...tasks, task]);
+  };
+
+  const deleteTask = (id: number): void => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const updateTask = (id: number, updatedTask: any): void => {
     setEditing(false);
+    setTasks(tasks.map((task) => (task.id === id ? updatedTask : task)));
   };
 
   const editRow = (): void => {
@@ -31,13 +42,13 @@ const Todo: FC = () => {
       <Header />
       <Sidebar>
         {editing ? (
-          <EditTask setEditing={setEditing} />
+          <EditTask setEditing={setEditing} updateTask={updateTask} />
         ) : (
-          <AddTask tasks={tasks} setTasks={setTasks} />
+          <AddTask addTask={addTask} />
         )}
       </Sidebar>
       <MainContent>
-        <TasksList tasks={tasks} editRow={editRow} setTasks={setTasks} />
+        <TasksList tasks={tasks} editRow={editRow} deleteTask={deleteTask} />
       </MainContent>
       <Footer />
     </Layout>

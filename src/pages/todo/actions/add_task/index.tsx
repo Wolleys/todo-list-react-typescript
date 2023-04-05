@@ -1,28 +1,14 @@
-import {
-  FC,
-  ChangeEvent,
-  useState,
-  Dispatch,
-  SetStateAction,
-  FormEvent,
-} from "react";
+import { FC, ChangeEvent, useState, FormEvent } from "react";
 import TextField from "../../../../components/FormElements/TextField";
 import SubmitBtn from "../../../../components/FormElements/Button/submitBtn";
-import { TaskInterface as PropsInterface } from "../../../../interfaces/TaskInterface";
 
 interface TaskPropsInterface {
-  tasks: PropsInterface["task"];
-  setTasks: Dispatch<SetStateAction<PropsInterface["task"]>>;
+  addTask(item: {}): void;
 }
 
-const AddTask: FC<TaskPropsInterface> = ({ tasks, setTasks }) => {
-  const initialValues = {
-    id: 0,
-    description: "",
-    deadline: 0,
-  };
-
-  const [input, setInput] = useState(initialValues);
+const AddTask: FC<TaskPropsInterface> = ({ addTask }) => {
+  const initialFormState = { id: 0, description: "", deadline: 0 };
+  const [input, setInput] = useState(initialFormState);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setInput({
@@ -31,24 +17,18 @@ const AddTask: FC<TaskPropsInterface> = ({ tasks, setTasks }) => {
     });
   };
 
-  const addTask = (event: FormEvent<HTMLFormElement>): void => {
+  const add = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     if (!input.description || input.deadline <= 0) return;
-    setTasks([
-      ...tasks,
-      {
-        id: tasks.length + 1,
-        description: input.description,
-        deadline: input.deadline,
-      },
-    ]);
-    setInput(initialValues);
+
+    addTask(input);
+    setInput(initialFormState);
   };
 
   return (
     <>
       <h6>Add task</h6>
-      <form onSubmit={addTask}>
+      <form onSubmit={add} autoComplete="off">
         <TextField
           required
           type="text"

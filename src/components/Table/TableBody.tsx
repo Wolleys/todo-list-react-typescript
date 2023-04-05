@@ -1,17 +1,13 @@
-import { FC, Dispatch, SetStateAction } from "react";
+import { FC } from "react";
 import { TaskInterface as PropsInterface } from "../../interfaces/TaskInterface";
 
 interface TaskPropsInterface {
   tasks: PropsInterface["task"];
-  setTasks: Dispatch<SetStateAction<PropsInterface["task"]>>;
   editRow(): void;
+  deleteTask(id: number): void;
 }
 
-const TableBody: FC<TaskPropsInterface> = ({ tasks, setTasks, editRow }) => {
-  const deleteTask = (id: number): void => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
-
+const TableBody: FC<TaskPropsInterface> = ({ tasks, deleteTask, editRow }) => {
   const renderTableBody = (): JSX.Element[] => {
     return tasks.map((item) => {
       return (
